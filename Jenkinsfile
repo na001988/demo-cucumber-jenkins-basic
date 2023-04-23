@@ -1,14 +1,10 @@
 pipeline{
 	agent any
-
-	stages{
-		stage("mvn package"){
-             steps{
-                def mvnCMD = "/usr/bin/mvn"
-                sh '''
-                ${mvnCMD} clean package
-                '''
-             }
-		}
+		stages{
+            stage('build code'){
+                steps{
+                    sh 'mvn clean'
+                }
+            }
     }
 }
